@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('phoneNumber');
             $table->string('dateOfBirth');
             $table->boolean('gender');
-            $table->string('avatarImg');
+            $table->string('avatarImg')->nullable();
             $table->integer('numberOfCoins');
 
             $table->timestamps();
