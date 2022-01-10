@@ -14,3 +14,15 @@ Route::resource('users',UsersController::class);
 
 // get user by id
 Route::get('users/{user}', [UsersController::class, 'show']);
+// update phone number by id
+Route::post('users/updatePhoneNumber', [UsersController::class, 'updatePhoneNumber']);
+// update email by id
+Route::post('users/updateEmail', [UsersController::class, 'updateEmail']);
+// update password by id
+Route::post('users/updatePassword', [UsersController::class, 'updatePassword']);
+// update user by id
+Route::post('users/updateDetails', [UsersController::class, 'updateDetails']);
+
+// save bank account
+Route::post('saveBankAccount', [UsersController::class, 'saveBankAccount']);
+

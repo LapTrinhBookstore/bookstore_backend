@@ -61,7 +61,7 @@ class UsersController extends Controller
      */
     public function edit($user)
     {
-        //
+
     }
 
     /**
@@ -71,9 +71,77 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $user)
+    public function update(Request $request)
     {
-        //
+        $data = array();
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['password'] = $request->password;
+        $data['phoneNumber'] = $request->phoneNumber;
+        $data['dateOfBirth'] = $request->dateOfBirth;
+        $data['gender'] = $request->gender;
+        $data['avatarImg'] = $request->avatarImg;
+        $data['numberOfCoins'] = $request->numberOfCoins;
+
+        $result = DB::table('users')->where('id',$request->id)->update($data);
+
+        return response()->json($result);
+    }
+
+    public function updatePhoneNumber(Request $request)
+    {
+        $data = array();
+
+        $data['phoneNumber'] = $request->phoneNumber;
+        $result = DB::table('users')->where('id',$request->id)->update($data);
+
+        return response()->json($result);
+    }
+
+    public function updateEmail(Request $request)
+    {
+        $data = array();
+
+        $data['email'] = $request->email;
+        $result = DB::table('users')->where('id',$request->id)->update($data);
+
+        return response()->json($result);
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $data = array();
+
+        $data['password'] = $request->password;
+        $result = DB::table('users')->where('id',$request->id)->update($data);
+
+        return response()->json($result);
+    }
+
+    public function updateDetails(Request $request)
+    {
+        $data = array();
+
+        $data['name'] = $request->name;
+        $data['gender'] = $request->gender;
+        $data['dateOfBirth'] = $request->dateOfBirth;
+
+        $result = DB::table('users')->where('id',$request->id)->update($data);
+
+        return response()->json($result);
+    }
+
+    public function saveBankAccount(Request $request)
+    {
+        $data = array();
+
+        $data['IdUser'] = $request->IdUser;
+        $data['accountNumber'] = $request->accountNumber;
+        $data['bankID'] = $request->bankID;
+
+        $result = DB::table('bank_account')->insert($data);
+
+        return response()->json($result);
     }
 
     /**
