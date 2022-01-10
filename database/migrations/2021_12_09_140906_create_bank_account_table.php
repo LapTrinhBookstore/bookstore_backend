@@ -17,6 +17,7 @@ class CreateBankAccountTable extends Migration
             $table->bigIncrements('id');
             $table->string('accountNumber');
             $table->integer('bankID');
+            $table->integer('IdUser');
             $table->decimal('amountOfMoney');
 
             $table->timestamps();
