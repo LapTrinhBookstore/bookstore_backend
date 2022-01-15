@@ -2,8 +2,8 @@
     require "dbCon.php";
 
     $query = "SELECT id, productImg, name, price
-                FROM product INNER JOIN typedetail ON product.id = typedetail.idBook
-                WHERE idType = 'BT00000001' OR idType = 'BT00000002'
+                FROM product INNER JOIN categorydetail ON product.id = categorydetail.idProduct
+                WHERE idCategory = 'BT00000001' OR idCategory = 'BT00000002'
                 GROUP BY id";
     $data = mysqli_query($connect, $query);
     
