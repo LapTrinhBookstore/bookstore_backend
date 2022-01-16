@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
@@ -26,3 +27,8 @@ Route::post('users/updateDetails', [UsersController::class, 'updateDetails']);
 // save bank account
 Route::post('saveBankAccount', [UsersController::class, 'saveBankAccount']);
 
+
+Route::post('product/detail', [ProductController::class, 'GetProduct']);
+Route::post('product/ratings', [ProductController::class, 'GetTopRating']);
+Route::post('product/all-rating', [ProductController::class, 'GetAllRating']);
+Route::post('product/insertRating', [ProductController::class, 'InsertRating']);
